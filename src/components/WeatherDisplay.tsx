@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import styles from './WeatherDisplay.module.css';
 import {
 	FaCloudSun,
@@ -10,16 +10,6 @@ import './WeatherDisplay.css';
 import MapComponent from './Map';
 
 const WeatherDisplay: React.FC = () => {
-	const tableStyle: React.CSSProperties = {
-		borderCollapse: 'collapse',
-		border: '1px solid black',
-	};
-
-	const cellStyle: React.CSSProperties = {
-		border: '1px solid black',
-		padding: '8px', // Optional: Add some padding for better readability
-		textAlign: 'left', // Optional: Align text to the left
-	};
 	return (
 		<div className="mainContainer">
 			<div className="mainPageContainer">
@@ -32,31 +22,6 @@ const WeatherDisplay: React.FC = () => {
 					</div>
 				</div>
 				<div className="climateInfoContainer">
-					{/* <table style={tableStyle}>
-						<thead>
-							<tr>
-								<th style={cellStyle}>TIME</th>
-								<th style={cellStyle}>UV</th>
-								<th style={cellStyle}>HUMIDITY</th>
-								<th style={cellStyle}>AQ</th>
-								<th style={cellStyle}>WIND SPEED</th>
-								<th style={cellStyle}>TEMPERATURE</th>
-								<th style={cellStyle}>PRESSURE</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td style={cellStyle}>11:25 AM</td>
-								<td style={cellStyle}>4</td>
-								<td style={cellStyle}>58%</td>
-								<td style={cellStyle}>22</td>
-								<td style={cellStyle}>12 km/h</td>
-								<td style={cellStyle}>25°C</td>
-								<td style={cellStyle}>1013 hPa</td>
-							</tr>
-						</tbody>
-					</table> */}
-
 					<div className="dataContainer">
 						<div className="data">
 							<p>UV</p>

@@ -7,7 +7,7 @@ import { searchLocation } from '../types';
 const searchBar = () => {
 	const dispatch = useDispatch();
 	const [searchData, setSearchData] = useState<string>();
-
+	console.log('search');
 	const handleChange = (e) => {
 		setSearchData(e.target.value);
 	};
