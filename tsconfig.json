@@ -10,22 +10,3 @@
 	},
 	"include": ["src"]
 }
-
-// {
-// 	"compilerOptions": {
-// 		"target": "ES6",
-// 		"module": "ESNext",
-// 		"moduleResolution": "node",
-// 		"jsx": "react-jsx",
-// 		"strict": true,
-// 		"esModuleInterop": true,
-// 		"skipLibCheck": true,
-// 		"forceConsistentCasingInFileNames": true,
-// 		"baseUrl": "./src",
-// 		"paths": {
-// 			"@/*": ["*"]
-// 		}
-// 	},
-// 	"include": ["src/**/*", "declaration.d.ts"],
-// 	"exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
-// }

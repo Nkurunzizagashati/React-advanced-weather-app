@@ -4,17 +4,16 @@ const API_KEY = 'b6ff5397e72ef73e0788315e37c384ba';
 
 export const getWeatherDetailsService = async (city: string) => {
 	try {
-		// Fetch current weather data
+		
 		const currentWeatherResponse = await axios.get(
 			`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
 		);
 
-		// Fetch weather forecast for the next 5 days (3-hour intervals)
 		const forecastResponse = await axios.get(
 			`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${API_KEY}`
 		);
 
-		// Return both current weather and forecast
+	
 		return {
 			currentWeather: currentWeatherResponse.data,
 			forecast: forecastResponse.data,
