@@ -36,7 +36,10 @@
 
 .cloudSun {
 	font-size: 6rem;
-	color: lightblue;
+	background-color: skyblue;
+	width: 50%;
+	height: 50%;
+	border-radius: 0.8rem;
 }
 
 .cityNameContainer {

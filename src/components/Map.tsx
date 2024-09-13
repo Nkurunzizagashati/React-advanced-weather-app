@@ -1,13 +1,62 @@
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import React, { useEffect } from 'react';
+import {
+	MapContainer,
+	TileLayer,
+	Marker,
+	Popup,
+	useMap,
+} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useSelector } from 'react-redux';
+import L from 'leaflet';
+import { FaLocationArrow } from 'react-icons/fa';
+import ReactDOMServer from 'react-dom/server';
 
-const MapComponent: React.FC = () => {
-	const{ weather} = useSelector((state:any)=>state)
-	const data =weather?.all?.data
+interface MapComponentProps {
+	coords: {
+		lat: number;
+		lon: number;
+	};
+	locationName: string;
+}
 
-	const position: [number, number] = [51.505, -0.09]; // Position as a tuple of numbers
+const MapComponent: React.FC<MapComponentProps> = ({
+	coords,
+	locationName,
+}) => {
+	const MapUpdate = ({
+		coords,
+	}: {
+		coords: { lat: number; lon: number };
+	}) => {
+		const map = useMap();
+		useEffect(() => {
+			if (coords) {
+				map.setView([coords.lat, coords.lon], 13);
+			}
+		}, [coords, map]);
+		return null;
+	};
+
+	// Create the React icon as an HTML string using ReactDOMServer
+	const iconHtml = ReactDOMServer.renderToStaticMarkup(
+		<FaLocationArrow />
+	);
+
+	// Create a custom marker icon using L.divIcon
+	const customIcon = L.divIcon({
+		className: 'custom-div-icon',
+		html: `<div style="font-size: 24px; color: red;">${iconHtml}</div>`,
+		iconSize: [30, 42], // Adjust size if needed
+		iconAnchor: [15, 42], // Anchor point of the icon
+		popupAnchor: [0, -42], // Position of the popup relative to the marker
+	});
+
+	// Safeguard against undefined coordinates
+	if (!coords) {
+		return <div>Loading map...</div>;
+	}
+
+	const position: [number, number] = [coords.lat, coords.lon];
 
 	return (
 		<div style={{ height: '300px', width: '100%' }}>
@@ -22,11 +71,10 @@ const MapComponent: React.FC = () => {
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 				/>
-				<Marker position={position}>
-					<Popup>
-						A pretty CSS3 popup. <br /> Easily customizable.
-					</Popup>
+				<Marker position={position} icon={customIcon}>
+					<Popup>Location: {locationName}</Popup>
 				</Marker>
+				<MapUpdate coords={coords} />
 			</MapContainer>
 		</div>
 	);
