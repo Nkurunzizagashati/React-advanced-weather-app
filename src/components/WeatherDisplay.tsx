@@ -8,12 +8,16 @@ import WeatherChart from './WeatherChart';
 import './WeatherDisplay.css';
 import MapComponent from './Map';
 import { useSelector } from 'react-redux';
+import WeatherChartsContainer from './WeatherChartsContainer';
 
 const WeatherDisplay = () => {
 	const { weather } = useSelector((state: any) => state);
 
-	const data = weather?.all?.data;
-	console.log('weather----', data);
+	const data = weather?.all?.currentWeather;
+	const forecast = weather?.all?.forecast;
+
+	// const data = weather?.all?.data;
+	// console.log('weather----', data);
 	const tableStyle: React.CSSProperties = {
 		borderCollapse: 'collapse',
 		border: '1px solid black',
@@ -110,11 +114,11 @@ const WeatherDisplay = () => {
 						coords={data?.coord}
 						locationName={data?.name}
 					/>
-					<div>
-						<h2>Data for the last 7 days</h2>
-						<WeatherChart />
-					</div>
 				</div>
+			</div>
+			<div className="WeatherChartsDisplayContainer">
+				<h2>PREDICTIONS FOR COMING DAYS</h2>
+				<WeatherChartsContainer />
 			</div>
 		</>
 	);
