@@ -32,26 +32,7 @@ const WeatherDisplay: React.FC = () => {
 					</div>
 				</div>
 				<div className="climateInfoContainer">
-					{/* <div className="dataContainer">
-						<div className="data">
-							<p>TIME</p>
-							<p>11:25 AM</p>
-						</div>
-						<div className="data">
-							<p>UV</p>
-							<p>4</p>
-						</div>
-						<div className="data">
-							<p>HUMIDITY</p>
-							<p>58%</p>
-						</div>
-						<div className="data">
-							<p>AQ</p>
-							<p>22</p>
-						</div>
-					</div> */}
-
-					<table style={tableStyle}>
+					{/* <table style={tableStyle}>
 						<thead>
 							<tr>
 								<th style={cellStyle}>TIME</th>
@@ -74,7 +55,26 @@ const WeatherDisplay: React.FC = () => {
 								<td style={cellStyle}>1013 hPa</td>
 							</tr>
 						</tbody>
-					</table>
+					</table> */}
+
+					<div className="dataContainer">
+						<div className="data">
+							<p>UV</p>
+							<p>4</p>
+						</div>
+						<div className="data">
+							<p>HUMIDITY</p>
+							<p>58%</p>
+						</div>
+						<div className="data">
+							<p>AQ</p>
+							<p>22</p>
+						</div>
+						<div className="data">
+							<p>WINDSPEED</p>
+							<p>12 km/h</p>
+						</div>
+					</div>
 
 					<div className="sunriseSunsetInfoMainContainer">
 						<h2>SUNRISE & SUNSET</h2>
@@ -106,8 +106,10 @@ const WeatherDisplay: React.FC = () => {
 			</div>
 			<div className="visualPresentationContainer">
 				<MapComponent />
-				<h2>Data for the last 7 days</h2>
-				<WeatherChart />
+				<div>
+					<h2>Data for the last 7 days</h2>
+					<WeatherChart />
+				</div>
 			</div>
 		</div>
 	);

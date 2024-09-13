@@ -12,6 +12,7 @@ const MapComponent: React.FC = () => {
 				center={position}
 				zoom={13}
 				scrollWheelZoom={false}
+				className="z-10"
 			>
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

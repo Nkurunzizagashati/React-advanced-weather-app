@@ -2,6 +2,8 @@
 	display: flex;
 	justify-content: space-around;
 	padding: 0 2rem;
+	padding-top: 9rem;
+	gap: 4rem;
 }
 
 .mainPageContainer {
@@ -146,4 +148,22 @@
 	text-align: center;
 	display: flex;
 	flex-direction: column;
+	gap: 2rem;
+	border: 1px solid gray;
+	padding: 2rem;
+}
+
+table {
+	width: 100%;
+	/* border-collapse: collapse; */
+}
+
+@media screen and (max-width: 768px) {
+	.mainContainer {
+		flex-direction: column;
+	}
+
+	.visualPresentationContainer {
+		width: 100%;
+	}
 }
