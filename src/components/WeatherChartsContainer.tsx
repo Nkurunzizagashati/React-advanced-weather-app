@@ -6,7 +6,7 @@ import './WeatherChartsContainer.css';
 const WeatherChartsContainer: React.FC = () => {
 	const { weather } = useSelector((state: any) => state);
 	const forecast = weather?.all?.forecast;
-	console.log("forecast",forecast)
+	console.log('forecast', forecast);
 
 	// Group forecast data by day
 	const groupedData: Record<
@@ -38,7 +38,8 @@ const WeatherChartsContainer: React.FC = () => {
 	}
 
 	// Convert the groupedData object to an array and skip the first entry
-	const groupedDataArray = Object.entries(groupedData).slice(1);
+	const groupedDataArray = Object.entries(groupedData).slice(1, 2);
+	// const groupedDataArray = Object.entries(groupedData).slice(1);
 
 	return (
 		<div className="chartsContainer">

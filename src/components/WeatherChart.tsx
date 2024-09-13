@@ -43,6 +43,8 @@ const WeatherChart: React.FC<WeatherChartProps> = ({
 				backgroundColor: 'rgba(255, 99, 132, 0.5)',
 				borderColor: 'rgb(255, 99, 132)',
 				borderWidth: 1,
+				barPercentage: 0.6, // Customize bar width
+				categoryPercentage: 1, // Space between bars
 			},
 			{
 				label: 'Wind Speed (km/h)',
@@ -62,6 +64,7 @@ const WeatherChart: React.FC<WeatherChartProps> = ({
 	};
 
 	const options: ChartOptions<'bar'> = {
+		maintainAspectRatio: false,
 		scales: {
 			x: {
 				title: {
