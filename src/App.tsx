@@ -8,9 +8,7 @@ const App: React.FC = () => {
 	const dispatch = useDispatch();
 	const data = useSelector((state: any) => state?.weather?.all?.data);
 
-	// useEffect(() => {
-	// 	getWeatherDetailsAction('kigali')(dispatch);
-	// }, []);
+
 	return (
 		<>
 			<SearchBar />

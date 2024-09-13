@@ -8,11 +8,11 @@ export const getWeatherDetailsAction =
 		try {
 			const res = await getWeatherDetailsService(city);
 
-			// Check for successful response using currentWeather.cod
+			
 			if (res.currentWeather.cod === 200) {
 				dispatch(weatherActions.setIsLoading(false));
 
-				// Dispatch the current weather and forecast data
+			
 
 				console.log(res.currentWeather);
 				console.log(res.forecast);
@@ -23,7 +23,7 @@ export const getWeatherDetailsAction =
 					})
 				);
 
-				// Log the weather and forecast data
+				
 				console.log('Current Weather:', res.currentWeather);
 				console.log('Forecast:', res.forecast);
 			}
