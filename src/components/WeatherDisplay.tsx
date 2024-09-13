@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	FaCloudSun,
 	FaLocationArrow,
@@ -12,9 +12,51 @@ import WeatherChartsContainer from './WeatherChartsContainer';
 
 const WeatherDisplay = () => {
 	const { weather } = useSelector((state: any) => state);
-
 	const data = weather?.all?.currentWeather;
 	const forecast = weather?.all?.forecast;
+
+	const getRemainingDaylight = () => {
+		const sunrise: Date = new Date(data?.sys?.sunrise * 1000);
+		const sunset: Date = new Date(data?.sys?.sunset * 1000);
+		const currentTime: Date = new Date();
+
+		if (currentTime < sunrise) {
+			const remainingDaylight =
+				sunset.getTime() - sunrise.getTime();
+
+			const hours = Math.floor(remainingDaylight / 3600000);
+			const minutes = Math.floor(
+				(remainingDaylight % 3600000) / 60000
+			);
+
+			return `${hours}H:${minutes}M`;
+		} else if (currentTime >= sunrise && currentTime < sunset) {
+			const remainingDaylight =
+				sunset.getTime() - currentTime.getTime();
+
+			const hours = Math.floor(remainingDaylight / 3600000);
+			const minutes = Math.floor(
+				(remainingDaylight % 3600000) / 60000
+			);
+
+			return `${hours}H:${minutes}M`;
+		} else {
+			return 0;
+		}
+	};
+
+	// USE STATE FOR THE REMAINING DAY LIGHT
+	const [remainingDaylight, setRemainingDaylight] = useState(
+		getRemainingDaylight()
+	);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setRemainingDaylight(getRemainingDaylight());
+		}, 60000); // Update every minute
+
+		return () => clearInterval(interval);
+	}, [data?.sys?.sunrise, data?.sys?.sunset]);
 
 	const tableStyle: React.CSSProperties = {
 		borderCollapse: 'collapse',
@@ -50,36 +92,6 @@ const WeatherDisplay = () => {
 		const minutes = Math.floor((dayLength % 3600000) / 60000);
 
 		return `${hours}H:${minutes}M`;
-	};
-
-	const getRemainingDaylight = () => {
-		const sunrise: Date = new Date(data?.sys?.sunrise * 1000);
-		const sunset: Date = new Date(data?.sys?.sunset * 1000);
-		const currentTime: Date = new Date();
-
-		if (currentTime < sunrise) {
-			const remainingDaylight =
-				sunset.getTime() - sunrise.getTime();
-
-			const hours = Math.floor(remainingDaylight / 3600000);
-			const minutes = Math.floor(
-				(remainingDaylight % 3600000) / 60000
-			);
-
-			return `${hours}H:${minutes}M`;
-		} else if (currentTime >= sunrise && currentTime < sunset) {
-			const remainingDaylight =
-				sunset.getTime() - currentTime.getTime();
-
-			const hours = Math.floor(remainingDaylight / 3600000);
-			const minutes = Math.floor(
-				(remainingDaylight % 3600000) / 60000
-			);
-
-			return `${hours}H:${minutes}M`;
-		} else {
-			return 0;
-		}
 	};
 
 	return (
