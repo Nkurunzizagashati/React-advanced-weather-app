@@ -8,7 +8,6 @@ const WeatherChartsContainer: React.FC = () => {
 	const forecast = weather?.all?.forecast;
 	console.log('forecast', forecast);
 
-	// Group forecast data by day
 	const groupedData: Record<
 		string,
 		{

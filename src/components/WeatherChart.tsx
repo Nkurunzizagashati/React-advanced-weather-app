@@ -12,7 +12,6 @@ import {
 } from 'chart.js';
 import './WeatherChart.css';
 
-// Register the necessary chart.js components
 ChartJS.register(
 	CategoryScale,
 	LinearScale,
