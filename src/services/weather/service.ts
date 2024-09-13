@@ -1,19 +1,6 @@
-// import axios from 'axios';
-
-// export const getWeatherDetailsService = async (city: string) => {
-// 	try {
-// 		const res = await axios.get(
-// 			`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=b6ff5397e72ef73e0788315e37c384ba`
-// 		);
-// 		return res;
-// 	} catch (error) {
-// 		console.log('error', error);
-// 	}
-// };
-
 import axios from 'axios';
 
-const API_KEY = 'b6ff5397e72ef73e0788315e37c384ba'; // Store your API key as a constant
+const API_KEY = 'b6ff5397e72ef73e0788315e37c384ba';
 
 export const getWeatherDetailsService = async (city: string) => {
 	try {

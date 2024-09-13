@@ -46,9 +46,9 @@ const MapComponent: React.FC<MapComponentProps> = ({
 	const customIcon = L.divIcon({
 		className: 'custom-div-icon',
 		html: `<div style="font-size: 24px; color: red;">${iconHtml}</div>`,
-		iconSize: [30, 42], // Adjust size if needed
-		iconAnchor: [15, 42], // Anchor point of the icon
-		popupAnchor: [0, -42], // Position of the popup relative to the marker
+		iconSize: [30, 42],
+		iconAnchor: [15, 42],
+		popupAnchor: [0, -42],
 	});
 
 	// Safeguard against undefined coordinates

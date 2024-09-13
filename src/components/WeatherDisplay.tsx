@@ -16,8 +16,6 @@ const WeatherDisplay = () => {
 	const data = weather?.all?.currentWeather;
 	const forecast = weather?.all?.forecast;
 
-	// const data = weather?.all?.data;
-	// console.log('weather----', data);
 	const tableStyle: React.CSSProperties = {
 		borderCollapse: 'collapse',
 		border: '1px solid black',
