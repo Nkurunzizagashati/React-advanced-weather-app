@@ -20,8 +20,8 @@ const WeatherChartsContainer: React.FC = () => {
 
 	if (forecast?.list) {
 		forecast.list.forEach((entry: any) => {
-			const date = entry.dt_txt.split(' ')[0]; // Extract the date part
-			const time = entry.dt_txt.split(' ')[1]; // Extract the time part
+			const date = entry.dt_txt.split(' ')[0];
+			const time = entry.dt_txt.split(' ')[1];
 
 			if (!groupedData[date]) {
 				groupedData[date] = [];
@@ -37,7 +37,7 @@ const WeatherChartsContainer: React.FC = () => {
 	}
 
 	// Convert the groupedData object to an array and skip the first entry
-	const groupedDataArray = Object.entries(groupedData).slice(1); // Skip the first entry if desired
+	const groupedDataArray = Object.entries(groupedData).slice(1);
 
 	return (
 		<div className="chartsContainer">

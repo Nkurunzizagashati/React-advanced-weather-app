@@ -10,7 +10,6 @@ const App: React.FC = () => {
 
 	useEffect(() => {
 		getWeatherDetailsAction('kigali')(dispatch);
-		console.log(`Data: ${data}`);
 	}, []);
 	return (
 		<>
