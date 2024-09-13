@@ -175,7 +175,7 @@ const WeatherDisplay = () => {
 				</div>
 			</div>
 			<div className="WeatherChartsDisplayContainer">
-				<h2>PREDICTIONS FOR COMING DAYS</h2>
+				<h2>PREDICTIONS FOR TOMORROW</h2>
 				{weather.isLoading ? (
 					<div
 						role="status"
