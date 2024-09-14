@@ -14,7 +14,6 @@ const searchBar = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('searchdata', searchData);
 	};
 	useEffect(() => {
 		searchData && getWeatherDetailsAction(searchData)(dispatch);
@@ -37,7 +36,6 @@ const searchBar = () => {
 				</div>
 
 				<div className="bg-yellow-50">
-					{/* <h1>Search me</h1> */}
 				</div>
 			</div>
 		</>
