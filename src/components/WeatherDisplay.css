@@ -122,6 +122,7 @@
 .cloud {
 	font-size: 15rem;
 	color: skyblue;
+	align-self: center;
 }
 
 .dayLight {
