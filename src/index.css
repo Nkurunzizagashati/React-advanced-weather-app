@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--primary-color: #625548;
+	--black-color: #000000;
+	--surface-color: #eeedeb;
+	--border-color: gray;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--surface-color);
+	font-family: 'Reggae One', 'sans-serif';
+	color: var(--primary-color);
+}
