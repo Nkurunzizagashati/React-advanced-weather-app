@@ -14,7 +14,6 @@ import { useSelector } from 'react-redux';
 import Warning from '../assets/Warning';
 
 
-const WeatherDisplay = () => {
   const WeatherDisplay = ()=>{
     const{ weather} = useSelector((state:any)=>state)
 	const tableStyle: React.CSSProperties = {
@@ -157,7 +156,7 @@ const WeatherDisplay = () => {
    
 	);
 }
-};
+
 
 export default WeatherDisplay;
 
