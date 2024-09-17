@@ -6,9 +6,10 @@ export const getWeatherDetailsAction =
     dispatch(weatherActions.setIsLoading(true));
     try {
       const res = await getWeatherDetailsService(city);
+      console.log("resss",res.status === 200)
       if (res.status === 200) {
         dispatch(weatherActions.setIsLoading(false));
-        dispatch(weatherActions.setAll(res.data));
+        dispatch(weatherActions.setAll(res));
         console.log('data', res.data);
       }
     } catch (error) {
