@@ -1,8 +1,12 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import { useSelector } from 'react-redux';
 
 const MapComponent: React.FC = () => {
+	const{ weather} = useSelector((state:any)=>state)
+	const data =weather?.all?.data
+
 	const position: [number, number] = [51.505, -0.09]; // Position as a tuple of numbers
 
 	return (

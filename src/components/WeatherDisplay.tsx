@@ -7,8 +7,15 @@ import {
 import WeatherChart from './WeatherChart';
 import './WeatherDisplay.css';
 import MapComponent from './Map';
+import { useSelector } from 'react-redux';
 
-const WeatherDisplay: React.FC = () => {
+
+
+  const WeatherDisplay = ()=>{
+    const{ weather} = useSelector((state:any)=>state)
+    
+    const data =weather?.all?.data
+    console.log("weather----",data)
 	const tableStyle: React.CSSProperties = {
 		borderCollapse: 'collapse',
 		border: '1px solid black',
@@ -20,14 +27,15 @@ const WeatherDisplay: React.FC = () => {
 		textAlign: 'left',
 	};
 	return (
-		<div className="mainContainer">
+   <>
+   <div className="mainContainer">
 			<div className="mainPageContainer">
 				<div className="climateStatistics">
 					<FaCloudSun className="cloudSun" />
 					<div className="cityNameContainer">
-						<h2 className="cityName">Hyderabad</h2>
+						<h2 className="cityName">{data?.name}</h2>
 						<FaLocationArrow />
-						<h2 className="temperature">28°</h2>
+						<h2 className="temperature">{`${data?.main?.temp} °F`}</h2>
 					</div>
 				</div>
 				<div className="climateInfoContainer">
@@ -87,7 +95,15 @@ const WeatherDisplay: React.FC = () => {
 				</div>
 			</div>
 		</div>
+  
+   </>
+    
+  
+		
+   
 	);
-};
+}
+
 
 export default WeatherDisplay;
+
