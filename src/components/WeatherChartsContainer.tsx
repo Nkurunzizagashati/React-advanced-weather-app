@@ -6,6 +6,7 @@ import './WeatherChartsContainer.css';
 const WeatherChartsContainer: React.FC = () => {
 	const { weather } = useSelector((state: any) => state);
 	const forecast = weather?.all?.forecast;
+	console.log("forecast",forecast)
 
 	// Group forecast data by day
 	const groupedData: Record<

@@ -7,7 +7,7 @@ import { searchLocation, WeatherData } from '../types';
 
 const searchBar = () => {
 	const dispatch = useDispatch();
-	const [searchData, setSearchData] = useState<string>();
+	const [searchData, setSearchData] = useState<string>("kigali");
 	const { weather } = useSelector((state: any) => state);
 
 	const handleChange = (e) => {
@@ -16,10 +16,11 @@ const searchBar = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		searchData && getWeatherDetailsAction(searchData)(dispatch);
 	};
 	useEffect(() => {
 		searchData && getWeatherDetailsAction(searchData)(dispatch);
-	}, [dispatch, searchData]);
+	}, []);
 
 	return (
 		<>
